@@ -15,8 +15,27 @@ public class FlowerController {
     @GetMapping("/flowers")
     public List<Flower> getFlowers() {
         return List.of(
-            new Flower(FlowerColor.RED, 100, 10, FlowerType.TULIP),
-            new Flower(FlowerColor.BLUE, 50, 8, FlowerType.ROSE)
+            new Flower(FlowerColor.RED, 100, 10, FlowerType.TULIP)
         );
+    }
+    
+    @GetMapping("/payment/credit-card")
+    public String creditCard() {
+        return "Credit card payment";
+    }
+    
+    @GetMapping("/payment/paypal")
+    public String paypal() {
+        return "PayPal payment";
+    }
+    
+    @GetMapping("/delivery/post")
+    public String postDelivery() {
+        return "Post delivery";
+    }
+    
+    @GetMapping("/delivery/dhl")
+    public String dhlDelivery() {
+        return "DHL delivery";
     }
 }
