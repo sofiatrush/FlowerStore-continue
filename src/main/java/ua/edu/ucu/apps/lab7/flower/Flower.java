@@ -3,8 +3,6 @@ package ua.edu.ucu.apps.lab7.flower;
 import lombok.Getter;
 import lombok.Setter;
 
-
- 
 @Setter
 @Getter
 public class Flower {
@@ -26,7 +24,12 @@ public class Flower {
     public String getColor() {
         return color.toString();
     }
+    
     public double getPrice() {
         return this.price;
+    }
+    
+    public FlowerType getFlowerType() {
+        return this.flowerType;
     }
 }
