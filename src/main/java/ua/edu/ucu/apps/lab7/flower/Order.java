@@ -36,16 +36,17 @@ public class Order {
     }
 
     public boolean processOrder() {
-        double total = calculateTotalPrice();
+        double orderPrice = calculateTotalPrice();
+        double deliveryPrice = 0;
+        
         if (delivery != null) {
-            total += delivery.getDeliveryPrice(total);
+            deliveryPrice = delivery.delivery(orderPrice);
         }
         
-        if (payment != null && payment.pay(total)) {
-            if (delivery != null) {
-                delivery.deliver("Customer Address");
-            }
-            return true;
+        double totalPrice = orderPrice + deliveryPrice;
+        
+        if (payment != null) {
+            return payment.pay(totalPrice);
         }
         return false;
     }
